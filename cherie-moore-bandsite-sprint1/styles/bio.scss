@@ -1,0 +1,410 @@
+$primaryfont: "Avenir Next Bold";
+$secondaryfont: "Avenir Next Demi";
+$tertiaryfont: "Avenir Next Regular";
+$primary-color: #323232;
+$primary-silvercolor: #AFAFAF;
+$primary-whitecolor: #FFFFFF;
+$secondary-color: #000000;
+$secondary-mercurycolor: #E1E1E1;
+$secondary-alibastercolor: #FAFAFA;
+
+@use "./partials/variables" as *;
+@import "./partials/mixins";
+
+@mixin tablet-desktop {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $tablet-breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin page-header {
+  font-size: 60px;
+  line-height: 68px;
+  font-weight: 700;
+}
+
+@mixin section-header {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 700;
+}
+
+@mixin subheader {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+@mixin body-copy {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+@mixin footer-copy {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+
+// Mobile Styles
+.my-page-header {
+  @include mobile {
+    @include page-header;
+  }
+}
+
+.my-section-header {
+  @include mobile {
+    @include section-header;
+  }
+}
+
+.my-subheader {
+  @include mobile {
+    @include subheader;
+  }
+}
+
+.my-body-copy {
+  @include mobile {
+    @include body-copy;
+  }
+}
+
+.my-footer-copy {
+  @include mobile {
+    @include footer-copy;
+  }
+}
+
+// Tablet and Desktop Styles
+.my-page-header {
+  @include tablet-desktop {
+    @include page-header;
+  }
+}
+
+.my-section-header {
+  @include tablet-desktop {
+    @include section-header;
+  }
+}
+
+.my-subheader {
+  @include tablet-desktop {
+    @include subheader;
+  }
+}
+
+.my-body-copy {
+  @include tablet-desktop {
+    @include body-copy;
+  }
+}
+
+.my-footer-copy {
+  @include tablet-desktop {
+    @include footer-copy;
+  }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: $primaryfont;
+    src: url("../Assets/Font/AvenirNextLTPro-Bold.otf") format('opentype');
+    font-weight: 700;
+  }
+  
+  @font-face {
+    font-family: $secondaryfont;
+    src: url("../Assets/Font/AvenirNextLTPro-Demi.otf") format('opentype');
+    font-weight: 600;
+  }
+  
+  @font-face {
+    font-family: $tertiaryfont;
+    src: url("../Assets/Font/AvenirNextLTPro-Regular.otf") format('opentype');
+    font-weight: 400;
+  }
+  
+  
+/** Navigation **/
+.navbar {
+  background-color: $primary-color;
+  position: fixed;
+  width: 100%;
+  list-style-type: none;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  display: flex;
+}
+
+
+.navbar a {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+.navbar a:active {
+  text-decoration: underline;
+  text-decoration-color: $primary-whitecolor;
+  color: inherit;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__left-logo {
+  margin-right: 30px;
+  color: $primary-whitecolor;
+}
+
+.navbar__left-links {
+  color: $primary-whitecolor;
+}
+
+/** Hero Section **/
+.hero__container {
+  color: $primary-whitecolor;
+  @include: @mixin page-header;
+  font-family: $primaryfont;
+  padding-bottom: 100px;
+  padding-left: 0px;
+  padding-top: 100px;
+  padding-right: 0px;
+  margin-left: 0;
+  margin-right: 0;
+  background-image: url("../Assets/Images/hero-bio.jpg");
+  background-size: 100% 500px;
+  background-position: center;
+}
+
+.body__container-header {
+  padding: 127px;
+}
+
+.body__container-header h1 {
+  margin: 0;
+}
+
+  
+  /**About the Musicians Section**/
+
+  .body__header{
+    color: $primary-color;
+    padding-top: 36px;
+    font-family: $secondaryfont;
+    padding-left: 50px;
+    @include: @mixin page-header;
+  }
+  .hero__aboutsection { 
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 270px;
+    padding-right: 200px;
+  }
+  
+  
+  /** Blue concert image **/
+  
+  .body__img{
+    padding-bottom: 100px;
+  }
+  
+  .body__h2{
+    padding-right: 70px;
+    padding-bottom: 15px;
+    @include: @mixin subheader;
+    font-family: $secondaryfont;
+  }
+  
+  .body__h4{
+    padding-bottom: 50px;
+    @mixin body-copy;
+    font-family: $tertiaryfont;
+
+  }
+  
+  .body__h3{
+    padding-bottom: 40px;
+    @mixin body-copy;
+    font-family: $tertiaryfont;
+  }
+  
+  /** About Text Section **/
+  
+  .container__about{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .left__about-text {
+    flex: 1;
+    margin-right: 55px;
+    @mixin body-copy;
+    font-family: $tertiaryfont;
+  }
+  
+  .right__about-text {
+    flex: 1;
+    margin-right: 55px;
+    @mixin body-copy;
+    font-family: $tertiaryfont;
+  }
+    
+    /** Photo Cards Section **/
+  
+    .photo__cards__text{
+      @include: @mixin page-header;
+      font-family: $primaryfont;
+      padding-bottom: 36px;
+      padding-left: 100px;
+    }
+    .photo__cardsection {
+      background-color: $secondary-alibastercolor;
+      padding: 50px;
+    }
+  
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .card {
+      flex-basis: calc(33.33% - 70px);
+      width: 250px;
+      height: 150px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+  
+  
+  /** Footer **/
+  footer {
+    display: flex;
+    justify-content: center;
+    background-color: $primary-color;
+    padding-top: 30px;
+    padding-bottom: 100px;
+    color: $primary-whitecolor;
+  }
+  /** Apply flexbox columns to div parent classes **/
+  .footer__management .footer__booking1 .footer__booking2 {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+  }
+  
+  /** First Footer Section**/
+  .footer__management{
+    padding-left: 10px;
+    padding-top: 10px;
+    @mixin footer-copy;
+  }
+  
+  .footer__management-title {
+    margin-bottom: 0px;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    @include: @mixin subheader;
+    font-family: $primaryfont;
+  }
+  
+  .footer__management-copyright{
+    padding-top: 50px;
+    width: 100%;
+  }
+  
+  /** Second Footer Section **/
+  
+  .footer__booking1 {
+    margin-top: 22px;
+    padding-top: 30px;
+    @mixin footer-copy;
+    font-family: $tertiaryfont;
+  }
+  
+  .footer__booking1-social{
+    padding-top: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 50px;
+  }
+  
+  /** Third Footer Section **/
+  
+  .footer__booking2 {
+    margin-top: 85px;
+    padding-left:20px;
+    padding-top: 50px;
+    @mixin body-copy;
+    font-family: $tertiaryfont;
+  }
+  
+  /** Fourth Footer Section **/
+  .footer__right {
+    padding-top: 60px;
+    padding-left: 60px;
+    padding-right: 200px;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+  .footer__right-img{
+  flex: 1;
+  padding-top: 5px;
+  padding-left: 100px;
+  height: 20px;
+  width: 120px;
+  }
+
+
+  /** Apply font size and weight to h4 footer elements **/
+  .footer__management-name h4,
+  .footer__management-company h4,
+  .footer__booking1-name h4,
+  .footer__booking1-group h4,
+  .footer__booking2-agentname h4,
+  .footer__booking2-agentcompany h4 {
+    @mixin footer-copy;
+    font-family: $tertiaryfont;
+  }
+  
